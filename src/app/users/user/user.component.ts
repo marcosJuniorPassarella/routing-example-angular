@@ -22,7 +22,7 @@ export class UserComponent implements OnInit, OnDestroy {
 
     // funciona de forma assíncrona
     this.paramsSubscription$ = this.route.params.subscribe({
-      next(params: Params) {
+      next: (params: Params) => {
         this.user.id = params["id"];
         this.user.name = params["name"];
       },
