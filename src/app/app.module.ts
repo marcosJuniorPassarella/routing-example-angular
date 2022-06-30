@@ -11,7 +11,7 @@ import { UserComponent } from "./users/user/user.component";
 import { EditServerComponent } from "./servers/edit-server/edit-server.component";
 import { ServerComponent } from "./servers/server/server.component";
 import { ServersService } from "./servers/servers.service";
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 const appRoutes: Routes = [
   {
@@ -41,6 +41,17 @@ const appRoutes: Routes = [
         component: EditServerComponent,
       },
     ],
+  },
+  {
+    path: "not-found",
+    component: PageNotFoundComponent,
+  },
+  // ** captura todos os caminhos que não temos em nossas rotas
+  // essa rota deve ser sempre a última rota da aplicação
+  // senão qualquer caminho mesmo existente irá redirecionar para o not-found
+  {
+    path: "**",
+    redirectTo: "/not-found",
   },
 ];
 
