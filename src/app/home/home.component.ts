@@ -9,7 +9,10 @@ import { Router } from "@angular/router";
 export class HomeComponent {
   constructor(private router: Router) {}
 
-  onLoadServers(): void {
-    void this.router.navigate(["/servers"]);
+  onLoadServers(id: number): void {
+    void this.router.navigate(["/servers", id, "edit"], {
+      queryParams: { allowEdit: "1" },
+      fragment: "loading",
+    });
   }
 }
