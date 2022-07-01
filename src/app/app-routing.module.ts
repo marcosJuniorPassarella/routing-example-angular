@@ -10,6 +10,7 @@ import { UsersComponent } from "./users/users.component";
 import { AuthGuardService } from "./auth-guard.service";
 import { CanDeactivateGuardService } from "./can-deactivate-guard.service";
 import { ErrorPageComponent } from "./error-page/error-page.component";
+import { ServerResolver } from "./servers/server-resolver.service";
 
 const appRoutes: Routes = [
   {
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
       {
         path: ":id",
         component: ServerComponent,
+        resolve: { server: ServerResolver },
       },
       {
         path: ":id/edit",
