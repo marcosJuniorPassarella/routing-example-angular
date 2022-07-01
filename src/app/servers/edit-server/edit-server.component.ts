@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
 import { ServersService } from "../servers.service";
-import { ActivatedRoute, Params } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Observable } from "rxjs";
 
 @Component({
@@ -14,10 +14,12 @@ export class EditServerComponent implements OnInit {
   serverName = "";
   serverStatus = "";
   allowEdit = false;
+  changesSaved = false;
 
   constructor(
     private serversService: ServersService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -33,6 +35,8 @@ export class EditServerComponent implements OnInit {
       name: this.serverName,
       status: this.serverStatus,
     });
+    this.changesSaved = true;
+    this.router.navigate(["../"], { relativeTo: this.route });
   }
 
   getQueryParams(): void {
