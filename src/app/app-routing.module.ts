@@ -9,6 +9,7 @@ import { UserComponent } from "./users/user/user.component";
 import { UsersComponent } from "./users/users.component";
 import { AuthGuardService } from "./auth-guard.service";
 import { CanDeactivateGuardService } from "./can-deactivate-guard.service";
+import { ErrorPageComponent } from "./error-page/error-page.component";
 
 const appRoutes: Routes = [
   {
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
   },
   {
     path: "not-found",
-    component: PageNotFoundComponent,
+    component: ErrorPageComponent,
+    data: { message: "Page not found" },
   },
   // ** captura todos os caminhos que não temos em nossas rotas
   // essa rota deve ser sempre a última rota da aplicação
